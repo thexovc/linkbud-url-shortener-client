@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="w-full bg-[#0B101B] min-h-screen">
+    <div className="w-full bg-[#0B101B] min-h-screen flex flex-col items-center">
       <Navbar />
       <Main />
     </div>

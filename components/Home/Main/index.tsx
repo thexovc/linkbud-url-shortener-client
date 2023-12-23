@@ -2,7 +2,7 @@ import { FaLink } from "react-icons/fa6";
 
 export default function index() {
   return (
-    <div className="w-full flex flex-col gap-5 justify-center items-center text-white my-16 md:my-20">
+    <div className="w-[95%] bg-[#0B101B]  flex flex-col gap-5 justify-center items-center text-white my-16 md:my-20">
       <h1 className="text-3xl md:text-6xl font-bold text-center">
         Short Links, <span className="text-[#EB568E]">Big Impact.</span>{" "}
       </h1>
@@ -11,18 +11,18 @@ export default function index() {
         streamlines your online experience.
       </p>
 
-      <div className="my-5 py-3 px-4 border-4 flex items-center gap-3 border-[#353C4A] rounded-3xl text-[#C9CED6]">
-        <div className="flex gap-1 items-center">
-          <FaLink className="text-2xl" />
+      <div className="my-5 px-2 py-2 md:py-3 md:px-4 border-4 flex items-center gap-1 md:gap-3 border-[#353C4A] rounded-xl md:rounded-3xl text-[#C9CED6]">
+        <div className="flex gap-2 md:gap-1 items-center">
+          <FaLink className=" text-lg md:text-2xl" />
           <input
-            className="bg-inherit placeholder:text-[#C9CED6] outline-none text-lg px-6"
+            className="bg-transparent placeholder:text-[#C9CED6] outline-none md:text-lg px-0 md:px-6"
             placeholder="Enter the link here"
             type="text"
           />
         </div>
 
-        <button className="bg-indigo-500 hover:bg-indigo-700 py-2 px-3 rounded-xl font-semibold text-lg">
-          Shorten Url
+        <button className="bg-indigo-500 hover:bg-indigo-700 md:py-2 md:px-3 p-2 rounded-lg md:rounded-xl font-extrabold md:font-semibold text-sm md:text-lg">
+          Shorten
         </button>
       </div>
     </div>
