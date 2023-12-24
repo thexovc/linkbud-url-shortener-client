@@ -3,22 +3,30 @@ import axios from "axios";
 import { useState } from "react";
 import { FaLink } from "react-icons/fa6";
 import { ThreeDots } from "react-loader-spinner";
+import copy from "copy-to-clipboard";
+import toast from "react-hot-toast";
 
 export default function index() {
   const [linkText, setLinkText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [result, setResult] = useState("");
 
   const handleSubmit = async () => {
     setIsLoading(true);
-    console.log(`ddkjd, ${BACKEND_URL}/shortener/shorten`);
+    // console.log(`ddkjd, ${BACKEND_URL}/shortener/shorten`);
     try {
-      const res = await axios.post(`${BACKEND_URL}`, {
+      const res = await axios.post(`${BACKEND_URL}/shortener/shorten`, {
         originalUrl: linkText,
       });
 
-      console.log(res);
+      const shortenUrl = window.location.href + `su/${res.data}`;
+      console.log(shortenUrl);
+
+      setResult(shortenUrl);
+      setLinkText("");
       setIsLoading(false);
     } catch (error) {
+      setLinkText("");
       setIsLoading(false);
       console.log(error);
     }
@@ -37,35 +45,61 @@ export default function index() {
       <div className="my-5 px-2 py-2 md:py-3 md:px-4 border-4 flex items-center gap-1 md:gap-3 border-[#353C4A] rounded-xl md:rounded-3xl text-[#C9CED6]">
         <div className="flex gap-2 md:gap-1 items-center">
           <FaLink className=" text-lg md:text-2xl" />
-          <input
-            onChange={(e) => setLinkText(e.target.value)}
-            className="bg-transparent placeholder:text-[#C9CED6] outline-none md:text-lg px-0 md:px-4"
-            placeholder="Enter the link here"
-            type="text"
-          />
+          {result ? (
+            <input
+              disabled
+              className="bg-transparent blur-[0.5px] placeholder:text-[#C9CED6] outline-none md:text-lg px-0 md:px-4"
+              value={result}
+              type="text"
+            />
+          ) : (
+            <input
+              value={linkText}
+              onChange={(e) => setLinkText(e.target.value)}
+              className="bg-transparent placeholder:text-[#C9CED6] outline-none md:text-lg px-0 md:px-4"
+              placeholder="Enter the link here"
+              type="text"
+            />
+          )}
         </div>
 
-        {isLoading ? (
-          <div className="bg-indigo-500 hover:bg-indigo-700 md:py-2 md:px-3 p-2 rounded-lg md:rounded-xl font-extrabold md:font-semibold text-sm md:text-lg">
-            {" "}
-            <ThreeDots
-              visible={true}
-              height="20"
-              width="40"
-              color="#C9CED6"
-              radius="8"
-              ariaLabel="three-dots-loading"
-              wrapperStyle={{}}
-              wrapperClass=""
-            />
-          </div>
-        ) : (
+        {result ? (
           <button
-            onClick={handleSubmit}
-            className="bg-indigo-500 hover:bg-indigo-700 md:py-2 md:px-3 p-2 rounded-lg md:rounded-xl font-extrabold md:font-semibold text-sm md:text-lg"
+            onClick={() => {
+              copy(result);
+              toast.success("copied!");
+              setResult("");
+            }}
+            className="bg-orange-500 hover:bg-orange-700 md:py-2 md:px-3 p-2 rounded-lg md:rounded-xl font-extrabold md:font-semibold text-sm md:text-lg"
           >
-            Shorten
+            Copy
           </button>
+        ) : (
+          <>
+            {" "}
+            {isLoading ? (
+              <div className="bg-indigo-500 hover:bg-indigo-700 md:py-2 md:px-3 p-2 rounded-lg md:rounded-xl font-extrabold md:font-semibold text-sm md:text-lg">
+                {" "}
+                <ThreeDots
+                  visible={true}
+                  height="20"
+                  width="40"
+                  color="#C9CED6"
+                  radius="8"
+                  ariaLabel="three-dots-loading"
+                  wrapperStyle={{}}
+                  wrapperClass=""
+                />
+              </div>
+            ) : (
+              <button
+                onClick={handleSubmit}
+                className="bg-indigo-500 hover:bg-indigo-700 md:py-2 md:px-3 p-2 rounded-lg md:rounded-xl font-extrabold md:font-semibold text-sm md:text-lg"
+              >
+                Shorten
+              </button>
+            )}
+          </>
         )}
       </div>
     </div>
