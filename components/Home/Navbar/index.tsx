@@ -1,6 +1,6 @@
 import { FaLink } from "react-icons/fa6";
 import { BiSolidContact } from "react-icons/bi";
-import ContactModal from "@/components/Common/contactModal/Index";
+import ContactModal from "../../Common/contactModal/Index";
 import Link from "next/link";
 
 export default function Index({ setToggle, toggle }: any) {

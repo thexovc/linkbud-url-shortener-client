@@ -1,5 +1,5 @@
 "use client";
-import { BACKEND_URL } from "@/constants/config";
+import { BACKEND_URL } from "../../../constants/config";
 import axios from "axios";
 import { useEffect } from "react";
 import { ThreeDots } from "react-loader-spinner";

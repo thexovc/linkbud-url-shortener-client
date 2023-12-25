@@ -1,4 +1,4 @@
-import { BACKEND_URL } from "@/constants/config";
+import { BACKEND_URL } from "../../../constants/config";
 import axios from "axios";
 import { useState } from "react";
 import { FaLink } from "react-icons/fa6";
