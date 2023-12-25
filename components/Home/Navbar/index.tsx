@@ -1,9 +1,9 @@
 import { FaLink } from "react-icons/fa6";
 import { BiSolidContact } from "react-icons/bi";
-import ContactModal from "@/components/Common/contactModal";
+import ContactModal from "@/components/Common/contactModal/Index";
 import Link from "next/link";
 
-export default function index({ setToggle, toggle }: any) {
+export default function Index({ setToggle, toggle }: any) {
   return (
     <div className="w-[90%] h-20 flex items-center justify-between mx-auto">
       <Link href={"/"}>

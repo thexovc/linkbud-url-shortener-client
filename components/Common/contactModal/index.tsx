@@ -6,7 +6,7 @@ import { IoLogoWhatsapp } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
 import { FaWindowClose } from "react-icons/fa";
 
-export default function index({ setToggle }: any) {
+export default function Index({ setToggle }: any) {
   return (
     <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full select-none z-50">
       <div className="md:w-2/5 w-[90%] min-h-[20vh] mx-auto bg-slate-700 rounded-lg p-5  text-neutral-100">

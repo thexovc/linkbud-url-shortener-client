@@ -6,7 +6,7 @@ import { ThreeDots } from "react-loader-spinner";
 import copy from "copy-to-clipboard";
 import toast from "react-hot-toast";
 
-export default function index() {
+export default function Index() {
   const [linkText, setLinkText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState("");
