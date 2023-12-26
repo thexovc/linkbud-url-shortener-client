@@ -1,8 +1,5 @@
-"use client";
-// import { Metadata } from "next";
-import Navbar from "./components/Home/Navbar/Index";
-import Main from "./components/Home/Main/Index";
-// import Footer from "./components/Home/Footer/Index";
+import Navbar from "../../components/Home/Navbar/Index";
+import Main from "../../components/Home/Main/Index";
 import { useState } from "react";
 import { Toaster } from "react-hot-toast";
 

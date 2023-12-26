@@ -1,6 +1,4 @@
-import me from "../../assets/me.jpg";
-import Image from "next/image";
-import Link from "next/link";
+import me from "../../../assets/me.jpg";
 import { FaGithub, FaLinkedin, FaSquareXTwitter } from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { MdEmail } from "react-icons/md";
@@ -16,7 +14,7 @@ export default function Index({ setToggle }: any) {
         >
           <FaWindowClose className="text-2xl cursor-pointer hover:text-red-500" />
         </div>
-        <Image
+        <img
           className=" border-4 border-slate-200 w-20 h-20 md:w-28 md:h-28 rounded-full mx-auto object-cover object-top"
           src={me}
           alt={"me"}

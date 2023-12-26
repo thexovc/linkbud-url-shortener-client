@@ -3,8 +3,11 @@ import { BACKEND_URL } from "../../constants/config";
 import axios from "axios";
 import { useEffect } from "react";
 import { ThreeDots } from "react-loader-spinner";
+import { useParams } from "react-router-dom";
 
-export default function Page({ params }: { params: { slug: string } }) {
+export default function Surl() {
+  let params = useParams();
+
   const redirectUrl = async () => {
     const res = await axios.get(`${BACKEND_URL}/shortener/${params.slug}`);
     console.log(res);
