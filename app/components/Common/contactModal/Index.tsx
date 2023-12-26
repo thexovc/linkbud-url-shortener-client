@@ -1,4 +1,4 @@
-import me from "../../../assets/me.jpg";
+import me from "../../assets/me.jpg";
 import Image from "next/image";
 import Link from "next/link";
 import { FaGithub, FaLinkedin, FaSquareXTwitter } from "react-icons/fa6";
