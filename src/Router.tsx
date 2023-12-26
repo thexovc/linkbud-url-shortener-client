@@ -14,7 +14,7 @@ function Router() {
       <Route path="/">
         <Route index element={<Home />} />
         <Route path="*" element={<NoMatch />} />
-        <Route path="su" element={<Surl />} />
+        <Route path="su/:slug" element={<Surl />} />
       </Route>
     )
   );
